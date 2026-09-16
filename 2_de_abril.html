@@ -1,0 +1,2485 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bicicletería 2 de Abril | Repuestos y Taller</title>
+
+    <meta name="description"
+        content="Bicicletería 2 de Abril. Reparación, mantenimiento, repuestos, accesorios y bicicletas nuevas y usadas." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Racing+Sans+One&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+        :root {
+            --blue: #2F5D8C;
+            --black: #1C1C1C;
+            --white: #FCFCFC;
+            --gold: #B57124;
+            --gray: #D9D9D9;
+
+            --container: 1180px;
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 22px;
+
+            --shadow:
+                0 10px 30px rgba(28, 28, 28, 0.08);
+
+            --transition:
+                220ms ease;
+        }
+
+
+        /* =========================================================
+       RESET
+    ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .logo-image {
+            width: 120px;
+            height: auto;
+            display: block;
+        }
+
+
+        /* =========================================================
+       UTILIDADES
+    ========================================================= */
+
+        .container {
+            width: min(100% - 40px, var(--container));
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            margin-bottom: 10px;
+
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: "Racing Sans One", sans-serif;
+            font-size: clamp(36px, 4vw, 54px);
+            line-height: 1.05;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            max-width: 620px;
+            margin-top: 16px;
+
+            color: #555;
+            font-size: 17px;
+        }
+
+
+        /* =========================================================
+       BOTONES
+    ========================================================= */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 52px;
+            padding: 0 24px;
+
+            border: 2px solid transparent;
+            border-radius: var(--radius-sm);
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+            transition:
+                transform var(--transition),
+                background var(--transition),
+                color var(--transition),
+                border-color var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #244c74;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--blue);
+        }
+
+        .btn-white:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+
+        /* =========================================================
+       HEADER
+    ========================================================= */
+
+        .header {
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            background: var(--white);
+
+            border-bottom: 1px solid rgba(217, 217, 217, 0.5);
+        }
+
+        .nav {
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            position: relative;
+
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: var(--blue);
+            color: var(--white);
+
+            overflow: hidden;
+        }
+
+        .logo-mark::before {
+            content: "⚙";
+            position: absolute;
+
+            color: var(--gold);
+            font-size: 37px;
+
+            opacity: 0.95;
+        }
+
+        .logo-mark span {
+            position: relative;
+            z-index: 2;
+
+            font-family: "Racing Sans One", sans-serif;
+            font-size: 15px;
+            line-height: 1;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-name {
+            font-family: "Racing Sans One", sans-serif;
+            color: var(--blue);
+            font-size: 20px;
+        }
+
+        .logo-subtitle {
+            margin-top: 3px;
+
+            color: var(--gold);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--gold);
+
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 11px 18px;
+
+            background: var(--blue);
+            color: var(--white);
+
+            border-radius: var(--radius-sm);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: background var(--transition);
+        }
+
+        .nav-contact:hover {
+            background: #244c74;
+        }
+
+        .mobile-menu {
+            display: none;
+
+            border: 0;
+            background: none;
+
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+   HERO
+========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: 700px;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 78px;
+
+            overflow: hidden;
+
+            background: var(--white);
+        }
+
+
+        /* Contenedor */
+
+        .hero-container {
+            position: relative;
+
+            min-height: 620px;
+
+            display: flex;
+            align-items: center;
+        }
+
+
+        /* =========================================================
+   DECORACIÓN DEL ENGRANAJE
+========================================================= */
+
+        .hero-gear {
+            position: absolute;
+
+            width: 620px;
+            height: 620px;
+
+            right: 24%;
+            bottom: -220px;
+            opacity: 0.25;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+   CONTENIDO
+========================================================= */
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+
+            width: 53%;
+
+            padding-bottom: 20px;
+        }
+
+
+        .hero-title {
+            max-width: 700px;
+
+            margin-top: 8px;
+
+            font-family: "Racing Sans One", sans-serif;
+
+            font-size: clamp(54px, 5.8vw, 78px);
+
+            line-height: 0.98;
+
+            letter-spacing: -2px;
+
+            color: var(--black);
+        }
+
+        .hero-title span {
+            color: var(--gold);
+        }
+
+
+        .hero-description {
+            max-width: 560px;
+
+            margin-top: 25px;
+
+            color: #444;
+
+            font-size: 17px;
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
+   BOTONES
+========================================================= */
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+
+        /* =========================================================
+   BENEFICIOS
+========================================================= */
+
+        .hero-benefits {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 28px;
+
+            margin-top: 40px;
+        }
+
+
+        .hero-benefit {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            line-height: 1.25;
+        }
+
+
+        .benefit-icon {
+            width: 36px;
+            height: 36px;
+
+            display: grid;
+            place-items: center;
+
+            flex-shrink: 0;
+
+            background: var(--blue);
+
+            color: var(--white);
+
+            border-radius: 50%;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================================================
+   IMAGEN DE LA BICICLETA
+========================================================= */
+
+        .hero-image {
+            position: absolute;
+
+            z-index: 3;
+
+            right: -20px;
+            bottom: 0;
+
+            width: 55%;
+
+            height: 600px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            pointer-events: none;
+        }
+
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            object-position: center;
+
+            filter:
+                drop-shadow(0 25px 30px rgba(28, 28, 28, 0.16));
+
+            transform: scale(1.05);
+        }
+
+
+        /* =========================================================
+       SERVICES
+    ========================================================= */
+
+        .services {
+            position: relative;
+
+            background: var(--blue);
+            color: var(--white);
+
+            overflow: hidden;
+        }
+
+        .services .hero-gear {
+            position: absolute;
+
+            width: 520px;
+            height: 520px;
+
+            right: 80%;
+            bottom: -220px;
+            opacity: 0.25;
+
+            pointer-events: none;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .services-header .section-label {
+            color: var(--gold);
+        }
+
+        .services-header .section-title {
+            color: var(--white);
+        }
+
+        .services-grid {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .service-card {
+            padding: 35px 24px;
+
+            background: var(--white);
+            color: var(--black);
+
+            border-radius: var(--radius-md);
+
+            text-align: center;
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 62px;
+            height: 62px;
+
+            display: grid;
+            place-items: center;
+
+            margin: 0 auto 18px;
+
+            background: rgba(47, 93, 140, 0.1);
+            color: var(--blue);
+
+            border-radius: 50%;
+
+            font-size: 27px;
+        }
+
+        .service-card h3 {
+            font-family: "Racing Sans One", sans-serif;
+            color: var(--blue);
+            font-size: 25px;
+            line-height: 1;
+        }
+
+        .service-card p {
+            min-height: 66px;
+            margin-top: 14px;
+
+            color: #666;
+            font-size: 13px;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 16px;
+
+            color: var(--blue);
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+       WORKSHOP
+    ========================================================= */
+
+        .workshop {
+            position: relative;
+
+            background: var(--black);
+            color: var(--white);
+
+            overflow: hidden;
+        }
+
+        .workshop::after {
+            content: "⚙";
+
+            position: absolute;
+
+            right: -100px;
+            top: -150px;
+
+            color: rgba(181, 113, 36, 0.08);
+
+            font-size: 550px;
+        }
+
+        .workshop-grid {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .workshop .section-title {
+            color: var(--white);
+            max-width: 550px;
+        }
+
+        .workshop-description {
+            max-width: 500px;
+            margin-top: 20px;
+
+            color: #c8c8c8;
+        }
+
+        .workshop-list {
+            display: grid;
+            gap: 14px;
+
+            margin: 30px 0;
+        }
+
+        .workshop-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            list-style: none;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .check {
+            width: 23px;
+            height: 23px;
+
+            display: grid;
+            place-items: center;
+
+            flex-shrink: 0;
+
+            background: var(--gold);
+            color: var(--white);
+
+            border-radius: 50%;
+
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .workshop-visual {
+            min-height: 440px;
+
+            display: grid;
+            place-items: center;
+
+            background:
+                linear-gradient(135deg,
+                    #252525,
+                    #111);
+
+            border: 1px solid #333;
+            border-radius: var(--radius-lg);
+
+            overflow: hidden;
+        }
+
+        .workshop-placeholder {
+            width: 75%;
+            height: 75%;
+
+            display: grid;
+            place-items: center;
+
+            border: 2px dashed rgba(217, 217, 217, 0.35);
+            border-radius: var(--radius-md);
+
+            color: #777;
+
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .workshop-placeholder strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--gold);
+
+            font-family: "Racing Sans One", sans-serif;
+            font-size: 26px;
+        }
+
+
+        /* =========================================================
+       BIKES
+    ========================================================= */
+
+        .bikes-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+
+            margin-bottom: 35px;
+        }
+
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            color: var(--blue);
+
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .bikes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .bike-card {
+            position: relative;
+
+            min-height: 330px;
+
+            display: flex;
+            align-items: end;
+
+            padding: 35px;
+
+            border-radius: var(--radius-lg);
+
+            overflow: hidden;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(135deg,
+                    #2f5d8c,
+                    #1c1c1c);
+        }
+
+        .bike-card.used {
+            background:
+                linear-gradient(135deg,
+                    #6e481f,
+                    #1c1c1c);
+        }
+
+        .bike-card::after {
+            content: "🚲";
+
+            position: absolute;
+
+            right: 20px;
+            top: 25px;
+
+            font-size: 170px;
+
+            opacity: 0.13;
+        }
+
+        .bike-card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bike-card h3 {
+            max-width: 300px;
+
+            font-family: "Racing Sans One", sans-serif;
+            font-size: 39px;
+            line-height: 1;
+        }
+
+        .bike-card p {
+            max-width: 330px;
+            margin: 12px 0 20px;
+
+            color: rgba(255, 255, 255, 0.85);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+       PARTS
+    ========================================================= */
+
+        .parts {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .parts-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+
+            margin-bottom: 40px;
+        }
+
+        .parts .section-title {
+            color: var(--white);
+        }
+
+        .parts .text-link {
+            color: var(--white);
+        }
+
+        .parts-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .part {
+            min-height: 130px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            border-right: 1px solid #444;
+
+            text-align: center;
+
+            transition: background var(--transition);
+        }
+
+        .part:first-child {
+            border-left: 1px solid #444;
+        }
+
+        .part:hover {
+            background: #262626;
+        }
+
+        .part-icon {
+            margin-bottom: 12px;
+
+            color: var(--gold);
+
+            font-size: 30px;
+        }
+
+        .part span {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+       WHY US
+    ========================================================= */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .why-title {
+            font-family: "Racing Sans One", sans-serif;
+            font-size: clamp(42px, 5vw, 65px);
+            line-height: 0.95;
+        }
+
+        .why-title span {
+            color: var(--blue);
+        }
+
+        .reasons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .reason {
+            display: flex;
+            gap: 15px;
+        }
+
+        .reason-icon {
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            flex-shrink: 0;
+
+            background: rgba(47, 93, 140, 0.1);
+            color: var(--blue);
+
+            border-radius: 50%;
+        }
+
+        .reason h3 {
+            margin-bottom: 4px;
+
+            font-size: 14px;
+        }
+
+        .reason p {
+            color: #666;
+            font-size: 12px;
+        }
+
+
+        /* =========================================================
+       CTA
+    ========================================================= */
+
+        .cta {
+            position: relative;
+
+            background: var(--blue);
+            color: var(--white);
+
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: "⚙";
+
+            position: absolute;
+
+            left: -130px;
+            top: -190px;
+
+            color: rgba(181, 113, 36, 0.15);
+
+            font-size: 500px;
+        }
+
+        .cta-grid {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 40px;
+        }
+
+        .cta .section-label {
+            color: var(--gold);
+        }
+
+        .cta h2 {
+            font-family: "Racing Sans One", sans-serif;
+            font-size: clamp(40px, 5vw, 62px);
+            line-height: 1;
+        }
+
+        .cta p {
+            margin-top: 12px;
+
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+
+        /* =========================================================
+       CONTACT
+    ========================================================= */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr 0.5fr;
+            gap: 30px;
+
+            align-items: center;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 22px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 14px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            flex-shrink: 0;
+
+            background: rgba(47, 93, 140, 0.1);
+            color: var(--blue);
+
+            border-radius: 50%;
+        }
+
+        .contact-item h3 {
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+
+        .contact-item p {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .contact-logo {
+            width: 180px;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 18px;
+        }
+
+        .map {
+            min-height: 320px;
+
+            overflow: hidden;
+
+            border-radius: var(--radius-lg);
+
+            background: #e9e9e9;
+
+            box-shadow: var(--shadow);
+        }
+
+        .map iframe {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            min-height: 320px;
+
+            border: 0;
+        }
+
+        .map-marker {
+            padding: 15px 20px;
+
+            background: var(--white);
+
+            border-radius: var(--radius-sm);
+
+            box-shadow: var(--shadow);
+
+            text-align: center;
+        }
+
+        .map-marker strong {
+            display: block;
+            color: var(--blue);
+            font-size: 13px;
+        }
+
+        .map-marker span {
+            color: #777;
+            font-size: 11px;
+        }
+
+        .contact-brand {
+            text-align: center;
+        }
+
+        .contact-brand .logo-mark {
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 14px;
+        }
+
+        .contact-brand .logo-mark span {
+            font-size: 23px;
+        }
+
+        .contact-brand p {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+            margin-top: 15px;
+        }
+
+        .social {
+            width: 36px;
+            height: 36px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--blue);
+            color: var(--white);
+
+            border-radius: 50%;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+       FOOTER
+    ========================================================= */
+
+        footer {
+            padding: 22px 0;
+
+            background: var(--black);
+            color: #aaa;
+
+            font-size: 11px;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+
+        /* =========================================================
+       ANIMACIONES
+    ========================================================= */
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(25px);
+
+            transition:
+                opacity 700ms ease,
+                transform 700ms ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 18px;
+            }
+
+            .nav-contact {
+                display: none;
+            }
+
+            .hero-content {
+                width: 58%;
+            }
+
+            .hero-image {
+                right: -100px;
+                width: 57%;
+            }
+
+            .hero-title {
+                font-size: clamp(48px, 6vw, 68px);
+            }
+
+            .hero-bike {
+                right: -130px;
+                width: 55%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services .hero-gear {
+                right: 65%;
+            }
+
+            .parts-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .part:nth-child(4) {
+                border-left: 1px solid #444;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1.5fr;
+            }
+
+            .contact-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+
+        @media (max-width: 760px) {
+
+            .container {
+                width: min(100% - 28px, var(--container));
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            /* Header */
+
+            .nav {
+                height: 68px;
+            }
+
+            .nav-links {
+                position: fixed;
+
+                top: 68px;
+                left: 0;
+                right: 0;
+
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+
+                padding: 25px;
+
+                background: var(--white);
+
+                border-bottom: 1px solid var(--gray);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            /* Hero */
+
+            .hero {
+                min-height: auto;
+
+                padding-top: 110px;
+                padding-bottom: 60px;
+            }
+
+
+            .hero-container {
+                min-height: auto;
+
+                display: flex;
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .hero-content {
+                width: 100%;
+
+                padding: 0;
+            }
+
+
+            .hero-title {
+                font-size: clamp(48px, 14vw, 68px);
+
+                letter-spacing: -1.5px;
+            }
+
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+
+            .hero-benefits {
+                gap: 18px;
+            }
+
+
+            .hero-image {
+                position: relative;
+
+                right: auto;
+                bottom: auto;
+
+                width: 100%;
+
+                height: 300px;
+
+                margin-top: 25px;
+            }
+
+
+            .hero-image img {
+                transform: scale(1.1);
+            }
+
+
+            .hero-gear {
+                width: 400px;
+                height: 400px;
+
+                right: -160px;
+                bottom: 80px;
+            }
+
+            /* Services */
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services .hero-gear {
+                position: absolute;
+
+                width: 520px;
+                height: 520px;
+
+                right: 30%;
+                bottom: -220px;
+                opacity: 0.25;
+
+                pointer-events: none;
+            }
+
+            /* Workshop */
+
+            .workshop-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .workshop-visual {
+                min-height: 300px;
+            }
+
+            /* Bikes */
+
+            .bikes-header,
+            .parts-header {
+                display: block;
+            }
+
+            .bikes-header .text-link,
+            .parts-header .text-link {
+                margin-top: 18px;
+            }
+
+            .bikes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bike-card {
+                min-height: 280px;
+            }
+
+            /* Parts */
+
+            .parts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .part:nth-child(odd) {
+                border-left: 1px solid #444;
+            }
+
+            /* Why */
+
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .reasons {
+                grid-template-columns: 1fr;
+            }
+
+            /* CTA */
+
+            .cta-grid {
+                display: block;
+            }
+
+            .cta .btn {
+                margin-top: 25px;
+            }
+
+            /* Contact */
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-brand {
+                grid-column: auto;
+            }
+
+            /* Footer */
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+
+        @media (max-width: 420px) {
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .hero-benefits {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .parts-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .bike-card {
+                padding: 25px;
+            }
+
+            .bike-card h3 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="#inicio" class="logo">
+                <img src="logo2.svg" alt="2 de Abril - Repuestos y Taller" class="logo-image">
+            </a>
+
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+
+                    <li>
+                        <a href="#inicio">Inicio</a>
+                    </li>
+
+                    <li>
+                        <a href="#servicios">Servicios</a>
+                    </li>
+
+                    <li>
+                        <a href="#bicicletas">Bicicletas</a>
+                    </li>
+
+                    <li>
+                        <a href="#repuestos">Repuestos</a>
+                    </li>
+
+                    <li>
+                        <a href="#nosotros">Nosotros</a>
+                    </li>
+
+                    <li>
+                        <a href="#contacto">Contacto</a>
+                    </li>
+
+                </ul>
+            </nav>
+
+
+            <!-- PLACEHOLDER WHATSAPP -->
+            <a class="nav-contact" href="https://wa.me/5493413578359" target="_blank">
+                💬 Escribinos
+            </a>
+
+
+            <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+        <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-gear">
+                <img src="plato.svg" alt="Engranaje de Bicicletería 2 de Abril" width="100%" height="100%">
+            </div>
+
+            <div class="container hero-container">
+
+                <!-- CONTENIDO -->
+                <div class="hero-content fade-up">
+
+                    <span class="section-label">
+                        BICICLETERÍA · REPUESTOS · TALLER
+                    </span>
+
+                    <h1 class="hero-title">
+                        Tu bici lista para
+                        <br>
+                        volver <span>a rodar.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Reparación, mantenimiento, repuestos, accesorios y bicicletas
+                        nuevas y usadas.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="https://wa.me/5493413578359" target="_blank" class="btn btn-primary">
+                            🔧 Llevar mi bici al taller →
+                        </a>
+
+                        <a href="#bicicletas" class="btn btn-outline">
+                            🚲 Ver bicicletas →
+                        </a>
+
+                    </div>
+
+                    <div class="hero-benefits">
+
+                        <div class="hero-benefit">
+                            <div class="benefit-icon">⚙</div>
+                            <span>
+                                Atención<br>
+                                personalizada
+                            </span>
+                        </div>
+
+                        <div class="hero-benefit">
+                            <div class="benefit-icon">◆</div>
+                            <span>
+                                Calidad en<br>
+                                repuestos
+                            </span>
+                        </div>
+
+                        <div class="hero-benefit">
+                            <div class="benefit-icon">●</div>
+                            <span>
+                                Ciclistas de<br>
+                                confianza
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BICICLETA -->
+                <div class="hero-image">
+
+                    <img src="hero-bicicleta.png" alt="Bicicleta de Bicicletería 2 de Abril">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+        <section class="section services" id="servicios">
+
+            <img src="plato.svg" alt="Engranaje de Bicicletería 2 de Abril" class="hero-gear" width="100%"
+                height="100%">
+
+            <div class="container">
+
+                <div class="services-header fade-up">
+
+                    <span class="section-label">
+                        Nuestros servicios
+                    </span>
+
+                    <h2 class="section-title">
+                        Todo para que tu bici siga rodando
+                    </h2>
+
+                </div>
+
+
+                <div class="services-grid">
+
+                    <article class="service-card fade-up">
+
+                        <div class="service-icon">
+                            🔧
+                        </div>
+
+                        <h3>
+                            Reparaciones
+                            y mantenimiento
+                        </h3>
+
+                        <p>
+                            Desde ajustes y mantenimiento general
+                            hasta reparaciones específicas.
+                        </p>
+
+                        <a href="#contacto" class="service-link">
+                            Consultar →
+                        </a>
+
+                    </article>
+
+
+                    <article class="service-card fade-up">
+
+                        <div class="service-icon">
+                            ⚙
+                        </div>
+
+                        <h3>
+                            Repuestos
+                        </h3>
+
+                        <p>
+                            Componentes y repuestos para mantener
+                            tu bicicleta en las mejores condiciones.
+                        </p>
+
+                        <a href="#repuestos" class="service-link">
+                            Ver repuestos →
+                        </a>
+
+                    </article>
+
+
+                    <article class="service-card fade-up">
+
+                        <div class="service-icon">
+                            ⛑
+                        </div>
+
+                        <h3>
+                            Accesorios
+                        </h3>
+
+                        <p>
+                            Todo lo necesario para equiparte
+                            y disfrutar de cada salida.
+                        </p>
+
+                        <a href="#repuestos" class="service-link">
+                            Ver accesorios →
+                        </a>
+
+                    </article>
+
+
+                    <article class="service-card fade-up">
+
+                        <div class="service-icon">
+                            🚲
+                        </div>
+
+                        <h3>
+                            Bicicletas
+                        </h3>
+
+                        <p>
+                            Bicicletas nuevas y usadas para
+                            distintos tipos de ciclistas.
+                        </p>
+
+                        <a href="#bicicletas" class="service-link">
+                            Ver bicicletas →
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+         WORKSHOP
+    ====================================================== -->
+
+        <section class="section workshop">
+
+            <div class="container workshop-grid">
+
+                <div class="fade-up">
+
+                    <span class="section-label">
+                        Taller
+                    </span>
+
+                    <h2 class="section-title">
+                        ¿Tu bici necesita
+                        una puesta a punto?
+                    </h2>
+
+                    <p class="workshop-description">
+                        La revisamos, detectamos el problema y
+                        te decimos qué necesita antes de meterle mano.
+                    </p>
+
+
+                    <ul class="workshop-list">
+
+                        <li>
+                            <span class="check">✓</span>
+                            Mantenimiento general
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Ajuste de cambios
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Frenos
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Transmisión
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Cubiertas y cámaras
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Reparaciones
+                        </li>
+
+                    </ul>
+
+
+                    <a href="https://wa.me/5493413578359" target="_blank" class="btn btn-primary">
+                        💬 Consultar por reparación →
+                    </a>
+
+                </div>
+
+
+                <div class="workshop-visual fade-up">
+
+                    <div class="workshop-placeholder">
+
+                        <div>
+                            <strong>FOTO DEL TALLER</strong>
+
+                            Reemplazar este bloque por una
+                            fotografía del taller.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+         BIKES
+    ====================================================== -->
+
+        <section class="section" id="bicicletas">
+
+            <div class="container">
+
+                <div class="bikes-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            Bicicletas
+                        </span>
+
+                        <h2 class="section-title">
+                            Encontrá tu próxima bici
+                        </h2>
+
+                    </div>
+
+                    <a href="#contacto" class="text-link">
+                        Consultar bicicletas →
+                    </a>
+
+                </div>
+
+
+                <div class="bikes-grid">
+
+                    <article class="bike-card">
+
+                        <div class="bike-card-content">
+
+                            <h3>
+                                Bicicletas
+                                nuevas
+                            </h3>
+
+                            <p>
+                                Modelos y marcas para todos
+                                los estilos de ciclistas.
+                            </p>
+
+                            <a href="#contacto" class="btn btn-white">
+                                Consultar →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="bike-card used">
+
+                        <div class="bike-card-content">
+
+                            <h3>
+                                Bicicletas
+                                usadas
+                            </h3>
+
+                            <p>
+                                Bicicletas seleccionadas y
+                                revisadas, listas para rodar.
+                            </p>
+
+                            <a href="#contacto" class="btn btn-white">
+                                Consultar →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+         PARTS
+    ====================================================== -->
+
+        <section class="section parts" id="repuestos">
+
+            <div class="container">
+
+                <div class="parts-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            Repuestos y accesorios
+                        </span>
+
+                        <h2 class="section-title">
+                            Todo lo que tu bici necesita
+                        </h2>
+
+                    </div>
+
+                    <a href="#contacto" class="text-link">
+                        Consultar disponibilidad →
+                    </a>
+
+                </div>
+
+
+                <div class="parts-grid">
+
+                    <div class="part">
+                        <div class="part-icon">⚙</div>
+                        <span>Transmisión</span>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-icon">◉</div>
+                        <span>Frenos</span>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-icon">◌</div>
+                        <span>Ruedas</span>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-icon">◎</div>
+                        <span>Cubiertas</span>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-icon">▱</div>
+                        <span>Cámaras</span>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-icon">♢</div>
+                        <span>Accesorios</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+         WHY US
+    ====================================================== -->
+
+        <section class="section" id="nosotros">
+
+            <div class="container why-grid">
+
+                <div class="fade-up">
+
+                    <span class="section-label">
+                        Nosotros
+                    </span>
+
+                    <h2 class="why-title">
+                        ¿Por qué elegir
+                        <span>2 de Abril?</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="reasons">
+
+                    <article class="reason fade-up">
+
+                        <div class="reason-icon">
+                            👥
+                        </div>
+
+                        <div>
+                            <h3>
+                                Atención personalizada
+                            </h3>
+
+                            <p>
+                                Te asesoramos para encontrar
+                                la mejor solución.
+                            </p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="reason fade-up">
+
+                        <div class="reason-icon">
+                            🛡
+                        </div>
+
+                        <div>
+                            <h3>
+                                Experiencia y confianza
+                            </h3>
+
+                            <p>
+                                Pasión por las bicicletas
+                                y por un buen servicio.
+                            </p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="reason fade-up">
+
+                        <div class="reason-icon">
+                            ⚙
+                        </div>
+
+                        <div>
+                            <h3>
+                                Repuestos de calidad
+                            </h3>
+
+                            <p>
+                                Trabajamos con productos
+                                confiables.
+                            </p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="reason fade-up">
+
+                        <div class="reason-icon">
+                            🚲
+                        </div>
+
+                        <div>
+                            <h3>
+                                Bicicletas para todos
+                            </h3>
+
+                            <p>
+                                Nuevas y usadas para cada
+                                necesidad.
+                            </p>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+        <section class="section cta">
+
+            <div class="container cta-grid">
+
+                <div>
+
+                    <span class="section-label">
+                        Hablemos
+                    </span>
+
+                    <h2>
+                        ¿Qué necesita tu bici?
+                    </h2>
+
+                    <p>
+                        Contanos qué problema tiene
+                        y te orientamos.
+                    </p>
+
+                </div>
+
+
+                <a href="https://wa.me/5493413578359" target="_blank" class="btn btn-white">
+                    💬 Escribinos por WhatsApp →
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+        <section class="section" id="contacto">
+
+            <div class="container contact-grid">
+
+
+                <!-- INFO -->
+
+                <div class="contact-info">
+
+                    <h2 class="section-title">
+                        Encontranos
+                    </h2>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <img src="ubicacion.svg" alt="Ubicación" width="22" height="22">
+                        </div>
+
+                        <div>
+                            <h3>Dirección</h3>
+
+                            <p>
+                                Balcarce 1467<br>
+                                Villa Gobernador Gálvez, Santa Fe
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <img src="horarios.svg" alt="Horarios" width="20" height="20">
+                        </div>
+
+                        <div>
+                            <h3>Horarios</h3>
+                            <p>
+                                Lunes a viernes: 09:00 a 19:00 - <br>
+                                Sábados: 09:00 a 13:00
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <img src="telefono.svg" alt="Teléfono" width="20" height="20">
+                        </div>
+
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>
+                                +54 9 11 3413-578359
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <img src="instagram.svg" alt="" width="30" height="30">
+                        </div>
+
+                        <div>
+                            <h3>Instagram</h3>
+                            <p>
+                                @bicicleteria_2_de_abril
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAP PLACEHOLDER -->
+
+                <div class="map">
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Balcarce%201467,%20Villa%20Gobernador%20G%C3%A1lvez,%20Santa%20Fe&output=embed"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+
+                </div>
+
+
+                <!-- BRAND -->
+
+                <div class="contact-brand">
+
+                    <img src="logo.svg" alt="2 de Abril - Repuestos y Taller" class="contact-logo">
+
+                    <p>
+                        Más bicis,<br>
+                        mejores historias.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <span>
+                © 2026 Bicicletería 2 de Abril.
+                Todos los derechos reservados.
+            </span>
+
+            <div class="footer-links">
+
+                <a href="#">
+                    Política de privacidad
+                </a>
+
+                <a href="#">
+                    Términos y condiciones
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+    <script>
+
+        /* =========================================
+           MENÚ MOBILE
+        ========================================= */
+
+        const mobileMenu = document.getElementById("mobileMenu");
+        const navLinks = document.getElementById("navLinks");
+
+        mobileMenu.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+
+            mobileMenu.textContent =
+                navLinks.classList.contains("active")
+                    ? "✕"
+                    : "☰";
+        });
+
+
+        /* =========================================
+           CERRAR MENÚ AL HACER CLICK
+        ========================================= */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+                mobileMenu.textContent = "☰";
+
+            });
+
+        });
+
+
+        /* =========================================
+           ANIMACIONES AL HACER SCROLL
+        ========================================= */
+
+        const observer = new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+        document
+            .querySelectorAll(".fade-up")
+            .forEach(element => {
+
+                observer.observe(element);
+
+            });
+
+
+        /* =========================================
+           CAMBIO DE HEADER AL SCROLL
+        ========================================= */
+
+        const header = document.querySelector(".header");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 30) {
+
+                header.style.boxShadow =
+                    "0 5px 25px rgba(28,28,28,.08)";
+
+            } else {
+
+                header.style.boxShadow = "none";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
